@@ -34,18 +34,16 @@
       {% endif %}
     {% endwith %}
 
-    <!--
+       <!--
         SITE NAVIGATION & BOOTSTRAP NAV
         https://jinja.palletsprojects.com/en/2.11.x/tricks/
         https://getbootstrap.com/docs/5.0/components/navbar/
-
-        FYI: each nav link entry below is a tuple of values like (LINK_HREF, PAGE_ID, LINK_TEXT) where:
-        ... the link href and text are used to construct the link, and
-        ... the page identifier is used to determine active page styling if it matches the `active_page` value set on each page
     -->
     {% set nav_links = [
         ('/about', 'about', 'About'),
         ('/hello', 'hello', 'Hello'),
+        ('/unemployment/dashboard', 'unemployment_dashboard', 'Unemployment Dashboard'),
+        ('/stocks/form', 'stocks_form', 'Stocks Form'),
     ] -%}
     {% set active_page = active_page|default('home') -%}
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -109,3 +107,10 @@
     </script>
 </body>
 </html>
+
+
+
+
+
+
+ 
