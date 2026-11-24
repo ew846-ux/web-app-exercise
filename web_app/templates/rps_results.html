@@ -1,0 +1,21 @@
+{% extends "bootstrap_5_layout.html" %}
+{% set active_page = "rps_form" %}
+
+{% block content %}
+
+    <h2>Rock Paper Scissors Results</h2>
+
+    <p>You chose: <strong>{{ user_choice|capitalize }}</strong></p>
+    <p>The computer chose: <strong>{{ computer_choice|capitalize }}</strong></p>
+
+    {% if winner == "USER WINS" %}
+        <div class="alert alert-success">{{ winner }}</div>
+    {% elif winner == "COMPUTER WINS" %}
+        <div class="alert alert-danger">{{ winner }}</div>
+    {% else %}
+        <div class="alert alert-warning">{{ winner }}</div>
+    {% endif %}
+
+    <a class="btn btn-primary" href="/rps/form">Play Again</a>
+
+{% endblock %}

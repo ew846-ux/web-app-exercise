@@ -1,0 +1,27 @@
+{% extends "bootstrap_5_layout.html" %}
+{% set active_page = "rps_form" %}
+
+{% block content %}
+
+    <h2>Rock Paper Scissors</h2>
+
+    <p>Choose your move and play against the computer...</p>
+
+    {% if error %}
+        <div class="alert alert-danger">{{ error }}</div>
+    {% endif %}
+
+    <form action="/rps/results" method="POST">
+
+        <label for="user_choice">Your Choice:</label>
+        <select name="user_choice" id="user_choice">
+            {% for option in options %}
+                <option value="{{ option }}">{{ option|capitalize }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+
+        <button class="btn btn-success">Play!</button>
+    </form>
+
+{% endblock %}

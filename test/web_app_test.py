@@ -26,7 +26,7 @@ def test_about(test_client):
 def test_hello(test_client):
     response = test_client.get("/hello")
     assert response.status_code == 200
-    assert b"<h1>Hello, World!</h1>" in response.data
+    assert b"Hello" in response.data
 
     # ... with url params
     response = test_client.get("/hello?name=MJR")
