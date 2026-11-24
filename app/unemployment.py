@@ -28,9 +28,12 @@ def fetch_unemployment_data():
     request_url = f"https://www.alphavantage.co/query?function=UNEMPLOYMENT&apikey={API_KEY}"
 
     response = requests.get(request_url)
-    
+
     parsed_response = json.loads(response.text)
     data = parsed_response["data"]
+
+    # some months have no data and come back as "." so skip those
+    data = [d for d in data if d["value"] != "."]
 
     for d in data:
         d["value"] = float(d["value"])
